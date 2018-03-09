@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using FlexSoft.Web.Models;
 
 namespace FlexSoft.Web.Controllers
@@ -18,7 +14,17 @@ namespace FlexSoft.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginInfo loginInfo)
         {
+            return View();
+        }
 
+        public ViewResult Register()
+        {
+            return View();
+        }
+
+        public ActionResult Register(LoginInfo loginInfo)
+        {
+            
             return View();
         }
     }
