@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="FlexSoftDbContext.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201803091533246_Migration1.cs" />
     <Compile Include="Migrations\201803091533246_Migration1.Designer.cs">
       <DependentUpon>201803091533246_Migration1.cs</DependentUpon>

@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceModels\AuthoriseRequest.cs" />
+    <Compile Include="ServiceModels\AuthoriseResult.cs" />
+    <Compile Include="ServiceModels\RegisterRequest.cs" />
+    <Compile Include="ServiceModels\RegisterResponse.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
