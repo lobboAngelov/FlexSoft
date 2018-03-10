@@ -5,6 +5,8 @@ namespace FlexSoft.Web.Controllers
 {
     public class LoginController : Controller
     {
+
+   
         // GET: Login
         public ActionResult Index()
         {
@@ -12,20 +14,21 @@ namespace FlexSoft.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginInfo loginInfo)
+        public string LoginPost(LoginInfo loginInfo)
+        {
+            return "success";
+        }
+
+        public ViewResult Register(RegisterInfo registerInfo)
         {
             return View();
         }
 
-        public ViewResult Register()
-        {
-            return View();
-        }
-
-        public ActionResult Register(LoginInfo loginInfo)
+        [HttpPost]
+        public ActionResult RegisterPost(RegisterInfo registerInfo)
         {
             
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

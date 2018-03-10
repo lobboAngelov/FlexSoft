@@ -1,2 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Mvc.Html
+@using FlexSoft.Web.Models
 
+@model RegisterInfo
+@{
+    ViewBag.Title = "title";   
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("RegisterPost", "Login"))
+{
+    @Html.LabelFor(x => x.UserName);
+    @Html.TextBoxFor(x => x.UserName);
+    @Html.LabelFor(x => x.Password);
+    @Html.TextBoxFor(x => x.Password);
+    @Html.LabelFor(x => x.Email);
+    @Html.TextBoxFor(x => x.Email);
+
+    <input type="submit" value="Register" />
+}
+
+@Html.ActionLink("Register", "Register")
