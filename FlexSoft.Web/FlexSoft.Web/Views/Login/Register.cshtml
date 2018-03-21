@@ -1,23 +1,31 @@
-﻿@using System.Web.Mvc.Html
-@using FlexSoft.Web.Models
-
-@model RegisterInfo
-@{
-    ViewBag.Title = "title";   
-}
-
-<h2>Register</h2>
+﻿@model FlexSoft.Infrastructure.Entites.WebModels.RegisterInfo
 
 @using (Html.BeginForm("RegisterPost", "Login"))
 {
-    @Html.LabelFor(x => x.UserName);
-    @Html.TextBoxFor(x => x.UserName);
-    @Html.LabelFor(x => x.Password);
-    @Html.TextBoxFor(x => x.Password);
-    @Html.LabelFor(x => x.Email);
-    @Html.TextBoxFor(x => x.Email);
+    <div>@Html.ValidationSummary()</div>
+    <div class="form-group">@Html.LabelFor(x => x.Email)</div>
 
-    <input type="submit" value="Register" />
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Password)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.PasswordRepeat)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.PasswordRepeat)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.RfIdCard)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.RfIdCard)
+    </div>
+    <input type="submit" value="Submit" class="btn btn-default"/>
 }
 
-@Html.ActionLink("Register", "Register")

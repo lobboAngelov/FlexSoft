@@ -1,34 +1,77 @@
-﻿using System.Web.Mvc;
-using FlexSoft.Web.Models;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using System.Web.Security;
+using FlexSoft.Infrastructure.Entites.WebModels;
+using FlexSoft.Services.Abstract;
+using FlexSoft.Web.Extensions;
 
 namespace FlexSoft.Web.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IUserManager _userManager;
 
-   
-        // GET: Login
+        public LoginController(IUserManager userManager)
+        {
+            _userManager = userManager;
+        }
+        
         public ActionResult Index()
         {
             return View(new LoginInfo());
         }
 
         [HttpPost]
-        public string LoginPost(LoginInfo loginInfo)
+        public async Task<ActionResult> Login(LoginInfo loginInfo)
         {
-            return "success";
+            var result = await _userManager.Authorise(loginInfo.Username, loginInfo.Password);
+            
+            if (!result.Fail)
+            {
+                Session.SetUser(result.User);
+                FormsAuthentication.SetAuthCookie(loginInfo.Username,false);
+                return RedirectToAction("Index", "Navigation");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error);
+            }
+
+            return View("Index");
         }
 
-        public ViewResult Register(RegisterInfo registerInfo)
+        public ActionResult Logout()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            return View("Index", new LoginInfo());
+        }
+
+        public ViewResult Register()
+        {
+            return View(new RegisterInfo());
         }
 
         [HttpPost]
-        public ActionResult RegisterPost(RegisterInfo registerInfo)
+        public async Task<ActionResult> RegisterPost(RegisterInfo registerInfo)
         {
-            
-            return RedirectToAction("Index");
+            var result = await _userManager.Register(registerInfo);
+
+            if (!result.Fail)
+            {
+                return View("Index",new LoginInfo
+                {
+                    Username = registerInfo.Email
+                });
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error);
+            }
+
+            return View("Register");
         }
     }
 }

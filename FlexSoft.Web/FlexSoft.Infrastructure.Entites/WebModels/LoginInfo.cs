@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FlexSoft.Web.Models
+﻿namespace FlexSoft.Infrastructure.Entites.WebModels
 {
     public class LoginInfo
     {
