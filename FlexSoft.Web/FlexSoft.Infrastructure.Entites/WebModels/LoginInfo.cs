@@ -1,6 +1,6 @@
-﻿namespace FlexSoft.Infrastructure.Entites.ServiceModels
+﻿namespace FlexSoft.Infrastructure.Entites.WebModels
 {
-    public class AuthoriseRequest
+    public class LoginInfo
     {
         public string Username { get; set; }
         public string Password { get; set; }

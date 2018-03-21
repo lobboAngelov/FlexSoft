@@ -1,2 +1,31 @@
-﻿<!DOCTYPE html>
+﻿@model FlexSoft.Infrastructure.Entites.WebModels.RegisterInfo
+
+@using (Html.BeginForm("RegisterPost", "Login"))
+{
+    <div>@Html.ValidationSummary()</div>
+    <div class="form-group">@Html.LabelFor(x => x.Email)</div>
+
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Password)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.PasswordRepeat)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.PasswordRepeat)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.RfIdCard)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.RfIdCard)
+    </div>
+    <input type="submit" value="Submit" class="btn btn-default"/>
+}
 

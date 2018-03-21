@@ -13,7 +13,7 @@ namespace FlexSoft.Infrastructure.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201803091533246_Migration1"; }
+            get { return "201803211436209_Migration1"; }
         }
         
         string IMigrationMetadata.Source

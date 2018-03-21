@@ -1,29 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using FlexSoft.Infrastructure.Entites;
+using FlexSoft.Infrastructure.Entites.IdentityModels;
 using FlexSoft.Infrastructure.Entites.ServiceModels;
-
+using FlexSoft.Infrastructure.Entites.WebModels;
 
 namespace FlexSoft.Services.Abstract
 {
     public interface IUserManager
     {
-        AuthoriseResult Authorise(AuthoriseRequest request);
-        RegisterResponse Register(RegisterRequest request);
-    }
-
-    class UserManager : IUserManager
-    {
-        public AuthoriseResult Authorise(AuthoriseRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public RegisterResponse Register(RegisterRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        Task<AuthoriseResult> Authorise(string username, string password);
+        Task<ServiceResult> Register(RegisterInfo registerInfo);
+        Task<User> GetUser(int userId);
     }
 }

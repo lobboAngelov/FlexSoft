@@ -20,12 +20,7 @@ namespace FlexSoft.Infrastructure.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-
-            context.Users.Add(new User
-            {
-                Email = "Kur@kur.kur",
-                Name = "Luchi",
-            });
+            
             context.SaveChanges();
         }
     }

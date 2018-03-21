@@ -1,8 +1,9 @@
-﻿namespace FlexSoft.Infrastructure.Entites.ServiceModels
+﻿using FlexSoft.Infrastructure.Entites.IdentityModels;
+
+namespace FlexSoft.Infrastructure.Entites.ServiceModels
 {
-    public class AuthoriseResult
+    public class AuthoriseResult : ServiceResult
     {
-        public bool Sucess { get; set; }
-        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }
