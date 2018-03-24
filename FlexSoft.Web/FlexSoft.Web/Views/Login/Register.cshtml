@@ -1,31 +1,35 @@
 ﻿@model FlexSoft.Infrastructure.Entites.WebModels.RegisterInfo
 
+
+<h2>Register</h2>
+<div >
 @using (Html.BeginForm("RegisterPost", "Login"))
 {
     <div>@Html.ValidationSummary()</div>
-    <div class="form-group">@Html.LabelFor(x => x.Email)</div>
+    <div class="form-group">@Html.LabelFor(x => x.Email, new { @class = "control-label col-md-2" })</div>
 
     <div class="form-group">
-        @Html.TextBoxFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(x => x.Password)
+        @Html.LabelFor(x => x.Password, new { @class = "control-label col-md-2" })
     </div>
     <div class="form-group">
-        @Html.TextBoxFor(x => x.Password)
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(x => x.PasswordRepeat)
+        @Html.LabelFor(x => x.PasswordRepeat, new { @class = "control-label col-md-2" })
     </div>
     <div class="form-group">
-        @Html.TextBoxFor(x => x.PasswordRepeat)
+        @Html.TextBoxFor(x => x.PasswordRepeat, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(x => x.RfIdCard)
+        @Html.LabelFor(x => x.RfIdCard, new { @class = "control-label col-md-2" })
     </div>
     <div class="form-group">
-        @Html.TextBoxFor(x => x.RfIdCard)
+        @Html.TextBoxFor(x => x.RfIdCard, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
-    <input type="submit" value="Submit" class="btn btn-default"/>
+    <input type="submit" value="Submit" class="btn btn-info"/>
+   
 }
-
+</div>

@@ -13,6 +13,7 @@ namespace FlexSoft.Infrastructure
         {
             
         }
-        
+
+        public System.Data.Entity.DbSet<FlexSoft.Infrastructure.Entites.IdentityModels.UserLogin> UserLogins { get; set; }
     }
 }

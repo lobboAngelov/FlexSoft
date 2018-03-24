@@ -22,7 +22,7 @@ namespace FlexSoft.Web.Controllers
 
         public ActionResult EditProfile()
         {
-            return View();
+            return View(Session.User());
         }
 
         public PartialViewResult TrainingSummary()
