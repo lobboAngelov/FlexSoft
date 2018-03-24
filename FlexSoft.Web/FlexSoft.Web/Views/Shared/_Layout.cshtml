@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using FlexSoft.Services
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,8 +8,9 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 </head>
-<body>
+<body style="background-image: url(http://hdimages.org/wp-content/uploads/2016/12/black-background-image-HD5.jpg);background-attachment: fixed;;">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,23 +19,45 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("FlexVision", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("FlexVision", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" ,style= "font-family: \"Georgia\", Times, serif" })
+
             </div>
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="display: inline-block; float: right">
+                  
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <a href="@Url.Action("EditProfile", "Profile")" class="btn">
+                                Edit Profile
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ViewProfile", "Profile")" class="btn">
+                                View Profile
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Logout", "Login")" class="btn">
+                                Log Out
+                                <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
+    <div class="container bottom-left">
         @RenderBody()
         <hr />
-        <footer>
+        <footer style ="color:white;">
             <p>&copy; @DateTime.Now.Year - My ASP.NET Xdddd</p>
         </footer>
     </div>
-
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

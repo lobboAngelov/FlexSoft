@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using FlexSoft.Infrastructure.Entites.IdentityModels;
 using FlexSoft.Services.Abstract;
 using FlexSoft.Web.Extensions;
 
@@ -25,6 +26,7 @@ namespace FlexSoft.Web.Controllers
             return View(Session.User());
         }
 
+     
         public PartialViewResult TrainingSummary()
         {
             

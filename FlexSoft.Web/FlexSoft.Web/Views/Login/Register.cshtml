@@ -1,35 +1,35 @@
 ﻿@model FlexSoft.Infrastructure.Entites.WebModels.RegisterInfo
 
 
-<h2>Register</h2>
-<div >
+<h2 style = "font-weight: normal; color:white; margin-left: 10px; font-family: &quot;Times New Roman&quot;, Times, serif">Register</h2>
+<div style="padding: 10px">
 @using (Html.BeginForm("RegisterPost", "Login"))
 {
     <div>@Html.ValidationSummary()</div>
-    <div class="form-group">@Html.LabelFor(x => x.Email, new { @class = "control-label col-md-2" })</div>
+    <div  style="color: white" class="form-group">@Html.LabelFor(x => x.Email, new { @class = "control-label col-md-2", style = "font-weight: normal; color:white; font-family: \"Georgia\", Times, serif" })</div>
 
-    <div class="form-group">
-        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", style = "background-color:lavender;" })
+    <div  style="color: white" class="form-group">
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", style = "background-color:lavender; font - weight: normal;  font - family: \"Georgia\", Times, serif"})
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.LabelFor(x => x.Password, new { @class = "control-label col-md-2" })
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.TextBoxFor(x => x.Password, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.LabelFor(x => x.PasswordRepeat, new { @class = "control-label col-md-2" })
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.TextBoxFor(x => x.PasswordRepeat, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.LabelFor(x => x.RfIdCard, new { @class = "control-label col-md-2" })
     </div>
-    <div class="form-group">
+    <div  style="color: white" class="form-group">
         @Html.TextBoxFor(x => x.RfIdCard, new { @class = "form-control", style = "background-color:lavender;" })
     </div>
-    <input type="submit" value="Submit" class="btn btn-info"/>
+    <input type="submit" value="Submit" class="btn btn-success"/>
    
 }
 </div>

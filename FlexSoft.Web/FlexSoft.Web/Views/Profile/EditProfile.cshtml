@@ -4,7 +4,7 @@
     ViewBag.Title = "EditProfile";
 }
 
-<h2>EditProfile</h2>
+<h2 style="color:white;padding: 10px; font-family: \"Georgia\", Times, serif"; >Edit Profile</h2>
 
 
 @using (Html.BeginForm())
@@ -12,13 +12,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
+     
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2", style ="color:white; font-family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" , style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RfidCardNumber, htmlAttributes: new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.RfidCardNumber, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RfidCardNumber, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.RfidCardNumber, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" , style = "background-color:lavender;"} })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -42,23 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
-                @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SecurityStamp, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SecurityStamp, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
-                @Html.ValidationMessageFor(model => model.SecurityStamp, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
@@ -66,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TwoFactorEnabled, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TwoFactorEnabled, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.TwoFactorEnabled)
@@ -76,7 +60,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LockoutEndDateUtc, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LockoutEndDateUtc, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LockoutEndDateUtc, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.LockoutEndDateUtc, "", new { @class = "text-danger" })
@@ -84,7 +68,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LockoutEnabled, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LockoutEnabled, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.LockoutEnabled)
@@ -94,7 +78,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AccessFailedCount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AccessFailedCount, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AccessFailedCount, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.AccessFailedCount, "", new { @class = "text-danger" })
@@ -102,24 +86,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2", style = "color:white; font - family: \"Georgia\", Times, serif" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", style = "background-color:lavender;" } })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="padding: 10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("View Profile", "ViewProfile", null, new { @class = "btn btn-info" })
-</div>
+
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

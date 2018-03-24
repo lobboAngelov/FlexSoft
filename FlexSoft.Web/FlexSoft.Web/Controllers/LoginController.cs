@@ -30,7 +30,7 @@ namespace FlexSoft.Web.Controllers
             {
                 Session.SetUser(result.User);
                 FormsAuthentication.SetAuthCookie(loginInfo.Username,false);
-                return RedirectToAction("Index", "Navigation");
+                return RedirectToAction("ViewProfile", "Profile");
             }
 
             foreach (var error in result.Errors)
@@ -64,6 +64,7 @@ namespace FlexSoft.Web.Controllers
                 {
                     Username = registerInfo.Email
                 });
+               
             }
 
             foreach (var error in result.Errors)
