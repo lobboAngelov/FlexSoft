@@ -72,9 +72,9 @@ namespace FlexSoft.Services
             return result;
         }
 
-        public async Task<User> GetUser(int userId)
+        public async Task<User> GetUser(int rfId)
         {
-            return await Task.FromResult(_repository.GetById<User>(userId));
+            return await Task.FromResult(_repository.GetAll<User>().FirstOrDefault(x=> x.RfidCardNumber == rfId));
         }
     }
 }

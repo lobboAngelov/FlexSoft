@@ -30,7 +30,7 @@ namespace FlexSoft.Web.Controllers
             {
                 Session.SetUser(result.User);
                 FormsAuthentication.SetAuthCookie(loginInfo.Username,false);
-                return RedirectToAction("ViewProfile", "Profile");
+                return RedirectToAction("Index", "Navigation");
             }
 
             foreach (var error in result.Errors)

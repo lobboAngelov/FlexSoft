@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArduinoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Arduino\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlexSoft.Infrastructure.Entites\FlexSoft.Infrastructure.Entites.csproj">
