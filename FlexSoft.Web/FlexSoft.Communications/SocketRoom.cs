@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -17,11 +18,12 @@ namespace FlexSoft.Communications
         public void AddClient(ISocketClient socketClient)
         {
             ConnectedClients.Add(socketClient);
+            Console.WriteLine($@"New connection: {socketClient}");
         }
 
         public void RemoveClient(ISocketClient socketClient)
         {
-            var clientToRemove = ConnectedClients.FirstOrDefault(x => x.ClientId == socketClient.ClientId);
+            var clientToRemove = ConnectedClients.FirstOrDefault(x => x.RfIdCardNumber == socketClient.RfIdCardNumber);
             ConnectedClients.Remove(clientToRemove);
         }
 
@@ -49,7 +51,7 @@ namespace FlexSoft.Communications
             using (var memoryStream = new MemoryStream())
             {
                 binaryFormatter.Serialize(memoryStream, obj);
-                foreach (var socketClient in ConnectedClients.Where(x => x.ClientId != senderId))
+                foreach (var socketClient in ConnectedClients.Where(x => x.RfIdCardNumber != senderId))
                 {
                     socketClient.WebSocketConnection.Send(memoryStream.ToArray());
                 }

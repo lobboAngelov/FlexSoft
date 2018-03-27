@@ -9,20 +9,20 @@ namespace FlexSoft.Communications
 {
     public class ArduinoSocketClient : ISocketClient
     {
-        public ArduinoSocketClient(SocketRoom socketRoom, IWebSocketConnection webSocketConnection, int clientId)
+        public ArduinoSocketClient(SocketRoom socketRoom, IWebSocketConnection webSocketConnection, int rfId)
         {
             SocketRoom = socketRoom;
             WebSocketConnection = webSocketConnection;
-            ClientId = clientId;
+            RfIdCardNumber = rfId;
         }
 
         public SocketRoom SocketRoom { get; }
         public IWebSocketConnection WebSocketConnection { get; }
-        public int ClientId { get; }
+        public int RfIdCardNumber { get; }
 
         public override string ToString()
         {
-            return $"Arduino client {ClientId}, {WebSocketConnection.ConnectionInfo.ClientIpAddress}";
+            return $"Arduino client {RfIdCardNumber}, {WebSocketConnection.ConnectionInfo.ClientIpAddress}";
         }
     }
 }

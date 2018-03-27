@@ -15,15 +15,16 @@ namespace FlexSoft.Communications.Server
         public async Task MainAsync()
         {
             var builder = new ContainerBuilder();
-
-            builder.RegisterType<Repository>().AsImplementedInterfaces();
             builder.RegisterModule(new CommunicationModule());
 
             var container = builder.Build();
 
             using (var scope = container.BeginLifetimeScope())
             {
-                 await Task.Delay(-1);   
+                var trainingServerCommunicationLayer = scope.Resolve<ITrainingServerCommunicationLayer>();
+                trainingServerCommunicationLayer.StartServerClientSocket();
+
+                await Task.Delay(-1);
             }
         }
     }

@@ -36,6 +36,9 @@
     <Reference Include="Fleck, Version=0.14.0.59, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fleck.0.14.0.59\lib\net40\Fleck.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -50,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArduinoSocketClient.cs" />
+    <Compile Include="BrowserSocketClient.cs" />
     <Compile Include="CommunicationModule.cs" />
     <Compile Include="FlexSoftCommunicationsLayer.cs" />
     <Compile Include="ISocketClient.cs" />
@@ -61,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FlexSoft.Communications.Messages\FlexSoft.Communications.Messages.csproj">
+      <Project>{46d1f1fb-1f3f-429d-9879-e834fcd2b0b2}</Project>
+      <Name>FlexSoft.Communications.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlexSoft.Infrastructure.Entites\FlexSoft.Infrastructure.Entites.csproj">
       <Project>{604cf535-4000-4276-a249-97ca7d0d690d}</Project>
       <Name>FlexSoft.Infrastructure.Entites</Name>

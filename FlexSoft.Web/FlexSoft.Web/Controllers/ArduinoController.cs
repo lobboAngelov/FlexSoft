@@ -17,6 +17,7 @@ namespace FlexSoft.Web.Controllers
             _repository = repository;
         }
 
+        [OutputCache]
         public JsonResult Authenticate(int rfId, int deviceId)
         {
             var user = _userManager.GetUser(rfId);
