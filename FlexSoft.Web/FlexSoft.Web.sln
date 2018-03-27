@@ -19,16 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexSoft.Communications.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexSoft.Communications.Messages", "FlexSoft.Communications.Messages\FlexSoft.Communications.Messages.csproj", "{46D1F1FB-1F3F-429D-9879-E834FCD2B0B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{584E89C1-5346-4E66-B3CD-2F5999D4C862}"
-	ProjectSection(SolutionItems) = preProject
-		Project_Externals\Protobuf.NET\ClientSocketMessages.cs = Project_Externals\Protobuf.NET\ClientSocketMessages.cs
-		ClientSocketMessages.proto = ClientSocketMessages.proto
-		Project_Externals\GenerateProtos.ps1 = Project_Externals\GenerateProtos.ps1
-		Project_Externals\Protobuf.NET\SeverSocketMessages.cs = Project_Externals\Protobuf.NET\SeverSocketMessages.cs
-		Project_Externals\SeverSocketMessages.proto = Project_Externals\SeverSocketMessages.proto
-		Project_Externals\Protobuf.NET\SocketMessages.cs = Project_Externals\Protobuf.NET\SocketMessages.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

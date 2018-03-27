@@ -6,6 +6,6 @@ namespace FlexSoft.Communications
     {
         SocketRoom SocketRoom { get; }
         IWebSocketConnection WebSocketConnection { get; }
-        int ClientId { get; }
+        int RfIdCardNumber { get; }
     }
 }
