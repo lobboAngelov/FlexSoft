@@ -39,7 +39,7 @@ namespace FlexSoft.Communications
         {
             if (_joinedClients.ContainsKey(connection))
             {
-
+                _joinedClients[connection].SocketRoom.SendAll(data);
             }
             else
             {

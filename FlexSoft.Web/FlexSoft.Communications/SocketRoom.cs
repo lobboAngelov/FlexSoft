@@ -31,14 +31,27 @@ namespace FlexSoft.Communications
             {
                 return;
             }
-            var binaryFormatter = new BinaryFormatter();
 
+            var binaryFormatter = new BinaryFormatter();
             using (var memoryStream = new MemoryStream())
             {
                 binaryFormatter.Serialize(memoryStream, obj);
                 foreach (var connectedClient in ConnectedClients)
                 {
-                    connectedClient.WebSocketConnection.Send(memoryStream.ToArray()));
+                    connectedClient.WebSocketConnection.Send(memoryStream.ToArray());
+                }
+            }
+        }
+
+        public void SendOthers(object obj, int senderId)
+        {
+            var binaryFormatter = new BinaryFormatter();
+            using (var memoryStream = new MemoryStream())
+            {
+                binaryFormatter.Serialize(memoryStream, obj);
+                foreach (var socketClient in ConnectedClients.Where(x => x.ClientId != senderId))
+                {
+                    socketClient.WebSocketConnection.Send(memoryStream.ToArray());
                 }
             }
         }
