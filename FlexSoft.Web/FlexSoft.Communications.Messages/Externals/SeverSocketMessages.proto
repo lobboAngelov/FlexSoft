@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message TEST {
+	int32 number = 1;
+}
+
+message ServerMessage 
+{
+	oneof message{
+		ArduinoConnected arduinoConnectedMessage = 1;
+		ClientConnected clientConnectedMessage= 2;
+	}
+}
+
+message ArduinoConnected{
+	bool fail = 1;
+	int32 arduinoId = 2;
+	int32 rfIdCardNo = 3;
+}
+
+message ClientConnected{
+	int32 rfIdCardNo = 1;
+}

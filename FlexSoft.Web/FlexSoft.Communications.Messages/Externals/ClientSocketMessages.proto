@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+message MessageFromClient{
+	ClientType clientType = 1;
+
+	oneof message{
+		ArduinoAction arduinoAction = 2;
+		WebClientAction webClientAction = 3;
+	}
+}
+
+enum ClientType{
+	ARDUINO_CLIENT = 0;
+	WEB_CLIENT = 1;
+}
+
+message ArduinoAction
+{
+	oneof message {
+		ArduinoJoin arduinoJoin = 1;
+		ArduinoWorkoutAction arduinoWorkoutAction = 2;
+	}
+}
+
+message ArduinoJoin {
+	int32 arduinoId = 1;
+	int32 rfIdCard = 2;
+}
+
+message ArduinoWorkoutAction{
+	
+}
+
+message WebClientAction{
+	oneof message{
+		WebClientActionJoin webClientActionJoin = 1;
+	}
+}
+
+message WebClientActionJoin{
+	int32 rfIdCardNo = 1;
+}
