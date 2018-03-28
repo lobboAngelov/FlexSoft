@@ -15,9 +15,11 @@ namespace FlexSoft.Communications
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<Repository>().AsImplementedInterfaces();
-            builder.Register(context => new WebSocketServer(8091, "localhost")).As<IWebSocketServer>();
+            builder.Register(context => new WebSocketServer("ws://0.0.0.0:6060")).As<IWebSocketServer>();
             builder.RegisterType<ConcurrentDictionary<IWebSocketConnection, ISocketClient>>().AsSelf().SingleInstance();
             builder.RegisterType<ConcurrentBag<SocketRoom>>().AsSelf().SingleInstance();
+            builder.RegisterType<FlexSoftCommunicationsLayer>().As<ITrainingServerCommunicationLayer>()
+                .SingleInstance();
         }
     }
 }

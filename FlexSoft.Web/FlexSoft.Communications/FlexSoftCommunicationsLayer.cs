@@ -36,7 +36,7 @@ namespace FlexSoft.Communications
 
         public void SocketClientOpened(IWebSocketConnection connection)
         {
-
+            Console.WriteLine($@"New connection: {connection.ConnectionInfo.ClientIpAddress}");
         }
 
         public void SocketMessage(IWebSocketConnection connection, byte[] data)
