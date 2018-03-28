@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using Google.Protobuf;
 
 namespace FlexSoft.Communications
 {
@@ -27,34 +28,27 @@ namespace FlexSoft.Communications
             ConnectedClients.Remove(clientToRemove);
         }
 
-        public void SendAll(object obj)
+        public void SendAll(ServerMessage srvMessage)
         {
-            if (obj == null)
+            foreach (var connectedClient in ConnectedClients)
             {
-                return;
-            }
-
-            var binaryFormatter = new BinaryFormatter();
-            using (var memoryStream = new MemoryStream())
-            {
-                binaryFormatter.Serialize(memoryStream, obj);
-                foreach (var connectedClient in ConnectedClients)
-                {
-                    connectedClient.WebSocketConnection.Send(memoryStream.ToArray());
-                }
+                connectedClient.WebSocketConnection.Send(srvMessage.ToByteArray());
             }
         }
 
-        public void SendOthers(object obj, int senderId)
+        public void SendToArduino(ServerMessage serverMessage)
         {
-            var binaryFormatter = new BinaryFormatter();
-            using (var memoryStream = new MemoryStream())
+            foreach (var socketClient in ConnectedClients.Where(x => x is ArduinoSocketClient))
             {
-                binaryFormatter.Serialize(memoryStream, obj);
-                foreach (var socketClient in ConnectedClients.Where(x => x.RfIdCardNumber != senderId))
-                {
-                    socketClient.WebSocketConnection.Send(memoryStream.ToArray());
-                }
+                socketClient.WebSocketConnection.Send(serverMessage.ToByteArray());
+            }
+        }
+
+        public void SendToWebClient(ServerMessage serverMessage)
+        {
+            foreach (var socketClient in ConnectedClients.Where(x => x is BrowserSocketClient))
+            {
+                socketClient.WebSocketConnection.Send(serverMessage.ToByteArray());
             }
         }
     }
